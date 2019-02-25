@@ -27,7 +27,8 @@ void merge(vector<int> &myVec, int leftIndx, int middleIndx, int rightIndx)
     j = 0; // inital index of rightSub
     k = leftIndx; // inital index of merged Subarray
 
-    
+    // here were going back and forth with array1 and array2 
+    // checking which element is smaller to insert back into main vector
     while(i < sizeArr1 && j < sizeArr2)
     {
         if(leftSub[i] <= rightSub[j])
@@ -64,8 +65,8 @@ void mergesort(vector<int> &myVec, int leftIndx, int rightIndx)
     if(leftIndx < rightIndx)
     {
         int middleIndx = leftIndx + (rightIndx-leftIndx)/2;
-        mergesort(myVec,leftIndx,middleIndx);
-        mergesort(myVec,middleIndx+1,rightIndx);
+        mergesort(myVec,leftIndx,middleIndx-1);
+        mergesort(myVec,middleIndx-1,rightIndx);
         merge(myVec,leftIndx,middleIndx,rightIndx);
     }
 }
